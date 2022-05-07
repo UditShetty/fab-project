@@ -1,0 +1,120 @@
+#container{
+    margin-top: -125px;
+    position: fixed;
+
+}
+
+
+
+.sign{
+    width: 350px;
+    height: auto;
+    /* border: 2px solid black; */
+    margin:  auto ;
+    text-align: center;
+    padding: 20px;
+
+    /* margin: 10px; */
+   
+}
+.p{
+    color: #7a7a7a;
+    font-size: 13px;
+}
+.sign h1{
+    color: #161616;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: normal;
+    margin: 0 0 40px;
+    outline: none;
+    margin-bottom: 40px;
+}
+.sign form>div{
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid blue; */
+    margin-bottom: 10px;
+}
+.sign input{
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 10px;
+
+}
+.sign #password+input{
+    background-color: #e5ba61;
+    color: black;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: 400;
+
+}
+.sign .hr-login+ input{
+    background-color: #e5ba61;
+    color: black;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 1.1em;
+    /* line-height: 40px; */
+    font-weight: 400;
+
+}
+.sign span{
+    color: red;
+}
+.hr-login span {
+position: relative;
+top: -12px;
+display: inline-block;
+background-color: #fff;
+text-align: center;
+font-size: 16px;
+padding: 0 20px;
+color: #282828;
+
+}
+.hr-login {
+border-top: 1px solid #aaa;
+text-align: center;
+margin: 35px 0 12px;
+}
+
+.sign .p{
+    text-align: start;
+    margin-bottom: 10px;
+}
+
+
+#icon{
+  display: flex;
+  /* border: 2px solid black; */
+  margin-top: 20px;
+  justify-content: space-around;
+  height: 60px;
+}
+#icon button{
+    height: 60px;
+    border-radius: 10px;
+    width: 20%;
+    border: none;
+    /* border: 2px solid blue; */
+    color: white;
+    font-size: 20px;
+}
+#icon button:nth-child(1){
+    background-color: #3b5998;;
+}
+#icon button:nth-child(2){
+    background-color: #dd4b39;;
+}
+#icon button:hover{
+    opacity: 0.5;
+}
+#icon button a{
+    color: white;
+} 

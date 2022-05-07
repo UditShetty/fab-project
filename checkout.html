@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/4cb1a40bcb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="cart.css">
+
+    <style>
+    
+    
+    </style>
+
+</head>
+<body>
+    <div id="checkout">
+        <div class="inside_checkout1">
+            <img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/files/FABBAG-LOGO-FINAL.png?10432" alt="">
+            <div id="pb">
+                <p><b>Cart</b></p>
+                <i class="fa-solid fa-angle-right"></i>
+                <p>Information</p>
+                <i class="fa-solid fa-angle-right"></i>
+                <p style="color: #908299;">Shipping</p>
+                <i class="fa-solid fa-angle-right"></i>
+                <p style="color: #908299;">Payment</p>
+            </div>
+            <div id="cnt">
+                <div>
+                    <p style="font-size: 20px;">Contact Information</p>
+                </div>
+                <div>
+                    <p style="color: #665f80;">Already have an account?<span style="color: black;"> Log in</span></p>
+                </div>
+            </div>
+            <input class="input" type="text" placeholder="Email: Udit123@gmail.com">
+            <div id="inp_p">
+                <input id="checkbox" type="checkbox">
+                <p>Email me with news and offers</p>
+            </div>
+            <p>Shipping address</p>
+            <form >
+                <input class="input" type="text" placeholder="Country/region: India">
+                <div id="firstname">
+                    <input class="inp" type="text" placeholder="First Name">
+                    <input style="margin-right: 9px;" class="inp" type="text" placeholder="Last Name" >
+                </div>
+                <input class="input" type="text" placeholder="Country(Optional)">
+                <input class="input" type="text" placeholder="Address">
+                <input class="input" type="text" placeholder="Apartment. Suit, etc.(Optional)">
+                <div id="firstname">
+                    <input class="inp1" type="text" placeholder="City">
+                    <input class="inp1" type="text" placeholder="State">
+                    <input style="margin-right: 9px;" class="inp1" type="number" placeholder="pincode">
+                </div>
+                <input class="input" type="number" placeholder="Phone">
+                <div id="inp_p">
+                    <input id="checkbox" type="checkbox">
+                    <p>	Save this information for next time</p>
+                </div>
+            </form>
+            <div id="inp_p1">
+            <i class="fa-solid fa-angle-left"></i>
+            <p>Return to cart</p>
+            <button onclick="clickfunction()">Continue to Shipping</button>
+            </div>
+            <hr>
+            <div id="refund">
+                <p>Refund policy</p>
+                <p>Privacy policy</p>
+                <p>Terms of service</p>
+            </div>
+            
+
+
+        </div>
+        
+        <div class="inside_checkout">
+            <h1 id="h11"></h1>
+            <div style="width: 100%;" class="completediv">
+                <div class="div">
+                  
+                </div>
+              
+         </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+     var data=JSON.parse(localStorage.getItem("userData"))
+
+var total = data.reduce(function (sum, elem, index, arr) {
+return sum + Number(elem.price);
+}, 0);
+
+var length = data.length;
+console.log(length);
+
+console.log(total);
+
+document.querySelector("#h11").innerText = ` you have ${length} items in cart and  total is ${total}`;
+
+console.log(data)
+data.forEach(function(element,index){
+    console.log(element)
+    var box=document.createElement("div")
+    
+    var image1=document.createElement("img")
+    image1.src=element.image
+
+    var name1=document.createElement("p")
+    name1.innerText=element.name
+
+    var price1=document.createElement("p")
+    price1.innerText=element.price
+
+    var button= document.createElement("button")
+    button.innerText="Remove"
+    button.style.color="red"
+    button.style.backgroundColor="offwhite"
+    button.style.border="none"
+    button.addEventListener("click",function(){
+      console.log("click me")
+       removefun(element,index)
+    })
+
+    box.append(image1,name1,price1,button)
+    document.querySelector(".div").append(box)
+});
+
+function removefun(element,index){
+data.splice(index,1)
+localStorage.setItem("userData",JSON.stringify(data))
+window.location.reload()
+}
+    function clickfunction(){
+        //console.log("inside my function")
+        alert("payment successfull")
+        window.location.href="index.html"
+    }
+</script>

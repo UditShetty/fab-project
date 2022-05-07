@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/4cb1a40bcb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="cart.css">
+    <style>
+
+ 
+    </style>
+</head>
+<body>
+    <!-- index -->
+    <div id="mainnddiv">
+        <div id="contaaiiner">
+           <div> <h3><a href="subscribe.html">SUBSCRIBE NOW</a></h3></div>
+           <div><a href="index.html"><img id="imging" src="https://cdn.shopify.com/s/files/1/0052/7551/6995/files/FABBAG-LOGO_96ac9306-4c81-4ab8-8d2b-4e818eed7f76_2048x.png?v=1606482289" alt="">
+            </a></div> 
+   
+   <div class="navbaar">
+       <a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i></a>
+     <div class="droppddown">
+       <button class="dropbtn"> 
+           <i class="fa-solid fa-user"></i>
+           </button>
+       <div class="droppddown-content">
+         <a href="#">Language</a>
+         <a href="checkout.html">Checkout</a>
+         <a href="signin.html">Sign In</a>
+         <a href="createaccount.html">Create an Account</a>
+       </div>
+      </div> 
+      <a href=""><i class="fa-solid fa-heart"></i></a>
+      <a href="#home"><i class="fa-solid fa-magnifying-glass"></i></a>
+   </div>
+       </div>
+   </div>
+   <!-- indexend -->
+
+     <div class="completediv">
+           <div class="div">
+             
+           </div>
+           <div class="div1">
+               <h1 id="h11"></h1>
+           </div>
+    </div>
+                    <!-- footer part start -->
+                    <div id="mainfooter">
+                        <div id="footer">
+                            <div>
+                                <ul><h3>INFORMATION</h3>
+                                    <li><a href="">About Us</a> </li>
+                                    <li><a href=""> Associated Brands</a></li>
+                                    <li><a href=""> FAQ</a></li>
+                                    <li><a href="">Collaborate with Fab Bag</a></li>
+                                    <li><a href="">Contact Us</a></li>
+                                    <li><a href="">Returns & Refunds</a></li>
+                                    <li><a href="">Terms & Conditions</a></li>
+                                    <li><a href="">Privacy policy</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <h3>CUSTOMER CARE</h3>
+                                        <li>Call : <a href="" id="call"> 022-6805-6010 </a> <br>
+                                            (Monday to Friday : 9 AM - 7 PM).</li>
+                                        <li>Mail : <a href="index.html"> crew@fabbag.com</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul><h3>NEWSLETTER</h3>
+                                <li>Signup for the latest offers, updates and news</li>
+                                <div id="input">
+                                    <input id="inp" type="text" placeholder="Your Email Address">
+                                    <button>SUBSCRIBE</button>
+                    
+                                </div>
+                    
+                                <li>Don’t worry we don’t spam</li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer part end  -->
+</body>
+</html>
+
+<script>
+    var data=JSON.parse(localStorage.getItem("userData"))
+
+    var total = data.reduce(function (sum, elem, index, arr) {
+    return sum + Number(elem.price);
+  }, 0);
+
+  var length = data.length;
+  console.log(length);
+
+  console.log(total);
+  
+  document.querySelector("#h11").innerText = ` you have ${length} items in cart and  total is ${total}`;
+
+    console.log(data)
+    data.forEach(function(element,index){
+        console.log(element)
+        var box=document.createElement("div")
+        
+        var image1=document.createElement("img")
+        image1.src=element.image
+
+        var name1=document.createElement("p")
+        name1.innerText=element.name
+
+        var price1=document.createElement("p")
+        price1.innerText=element.price
+
+        var button= document.createElement("button")
+        button.innerText="Remove"
+        button.style.color="red"
+        button.style.backgroundColor="offwhite"
+        button.style.border="none"
+        button.addEventListener("click",function(){
+          console.log("click me")
+           removefun(element,index)
+        })
+
+        box.append(image1,name1,price1,button)
+        document.querySelector(".div").append(box)
+    });
+
+    function removefun(element,index){
+   data.splice(index,1)
+   localStorage.setItem("userData",JSON.stringify(data))
+   window.location.reload()
+  }
+
+    </script>
