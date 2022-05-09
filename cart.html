@@ -135,6 +135,7 @@
     function removefun(element,index){
    data.splice(index,1)
    localStorage.setItem("userData",JSON.stringify(data))
+   alert("Item deleted from cart")
    window.location.reload()
   }
 

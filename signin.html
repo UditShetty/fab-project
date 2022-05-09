@@ -122,26 +122,52 @@
 
 <script>
 
-    var userCreds=JSON.parse(localStorage.getItem("userData")) || []
-  var form=document.querySelector("form").addEventListener("submit",function(event){
-      event.preventDefault()
+// var regduser = JSON.parse(localStorage.getItem("userCreds"))
+//   var form=document.querySelector("form").addEventListener("submit",function(event){
+//       event.preventDefault()
 
-      var data={
-          email: document.querySelector("#email").value,
-          password:document.querySelector("#password").value,
-      }
-      if(data===null){
-          alert("Please Create an Accoount")
-      }
-      else if(userCreds.email===data.email && userCreds.password ==data.password){
-          alert("Sign is Successfull")
-          localStorage.setItem("signin",JSON.stringify(data))
-          window.location.href="index.html"
-      }
-      else{
-          alert("User Does not Exist")
-      }
+//       var data={
+//           email: document.querySelector("#email").value,
+//           password:document.querySelector("#password").value,
+//       }
+//       if(data===null){
+//           alert("Please Create an Accoount")
+//       }
+//       else if(regduser.email===data.email && regduser.password ==data.password){
+//           alert("Sign is Successfull")
+//           localStorage.setItem("signin",JSON.stringify(data))
+//           window.location.href="index.html"
+//       }
+//       else{
+//           alert("User Does not Exist")
+//         //   window.location.href="createaccount.html"
+//       }
 
 
-  })
+//   })
+document.querySelector("form").addEventListener("submit", loginFun);
+  var regdUsers = JSON.parse(localStorage.getItem("userCreds"));
+  //console.log(regdUsers);
+
+  function loginFun() {
+    event.preventDefault();
+    var enteredEmail = document.querySelector("#email").value;
+    var enteredPass = document.querySelector("#password").value;
+    //console.log(email, pass);
+
+    for (var i = 0; i < regdUsers.length; i++) {
+      console.log(regdUsers[i]);
+      if (
+        regdUsers[i].email == enteredEmail &&
+        regdUsers[i].password == enteredPass
+      ) {
+        alert("login success");
+        window.location.href = "index.html";
+        break;
+      } else {
+        console.log("login failed");
+      }
+    }
+  }
+
 </script>

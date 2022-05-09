@@ -139,18 +139,15 @@ var obj={
     // quantity:document.querySelector("#quantity").innerText,
 
 }
-
-
-    function clickfunction(){
+   function clickfunction(){
         console.log("inside my function")
         console.log(obj)
         // obj.push(name,image,price,quantity)
         data.push(obj)
         console.log(data)
         localStorage.setItem("userData",JSON.stringify(data))
+        alert("item added to cart")
         window.location.href="cart.html"
-
-        
 
     }
 </script>

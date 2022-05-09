@@ -111,24 +111,26 @@
 </html>
 
 <script>
-      var userCreds = JSON.parse(localStorage.getItem("userData"))||[]
 
-    var form=document.querySelector("form").addEventListener("submit", function(event){
-        event.preventDefault();
+document.querySelector("form").addEventListener("submit", signUpFun);
 
-    var data={
-       firstname: document.querySelector("#first").value,
-       lastname: document.querySelector("#last").value,
-       email: document.querySelector("#email").value,
-       password: document.querySelector("#password").value,
-   } 
+var userData = JSON.parse(localStorage.getItem("userCreds"))||[]
+function signUpFun() {
+  event.preventDefault();
 
-   userCreds.push(data)
-   //console.log(data)
-   localStorage.setItem("userData",JSON.stringify(data))
-   window.location.href="signin.html"
+  var userObj = {
+    email: document.querySelector("#email").value,
+    password: document.querySelector("#password").value,
+    firstName: document.querySelector("#first").value,
+    lastName: document.querySelector("#last").value,
+};
+  console.log(userObj);
+  userData.push(userObj);
+  console.log(userData)
+  localStorage.setItem("userCreds",JSON.stringify(userData))
+  window.location.href="signin.html"
 
-})
+}
     
 
 </script>
